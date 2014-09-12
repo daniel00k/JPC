@@ -1,0 +1,29 @@
+<h1>{{header}}</h1>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered">
+  <thead>
+    <th>{{attributesArray}}</th> <!-- I18n del array -->
+    <th><%= t(:options, scope: [:general]) %></th>
+  </thead>
+  <tbody>
+    {{plural}}<!-- @users.each do |user| -->
+      <tr>
+        {{attributes}} <!-- attributes.each do |attr| <td>user.attr</td>-->
+        <td>
+          <%= link_to {{path.show}}, class: "btn btn-primary btn-sm pull-right", title: t(:show, scope: [:general]) do %>
+            <span class='glyphicon glyphicon-eye-open'></span>
+          <% end %>
+          <%= link_to {{path.edit}}, class: "btn btn-primary btn-sm pull-right", title: t(:edit, scope: [:general]) do %>
+            <span class='glyphicon glyphicon-edit'></span>
+          <% end %>
+          <%= link_to  {{path.destroy}}, :confirm => t(:sure, scope: [:general]), :method => :delete, title: t(:delete, scope: [:general]) do %>
+            <span class='glyphicon glyphicon-trash'></span>
+          <% end %>
+        </td>
+      </tr>
+    {{/plural}}
+  </tbody>
+</table>
+<%= link_to {{path.new}}, class: "btn btn-primary btn-sm pull-right", title: t(:new, scope: [:general]) do %>
+  <%=t(:new_model, scope: [:general], model: {{model}}.model_name.human) %>
+  <span class="glyphicon glyphicon-plus"></span>
+<% end %>

@@ -1,0 +1,27 @@
+{
+  "model": "User",
+  "plural": "users",
+  "singular": "user",
+  "header": "Usuarios",
+  "attributesArray":["name"],
+  "attributes": {
+                  "name": "string"
+                },
+  "validations": {
+                  "name": ["required"]
+                },
+  "html": {
+            "label":       false,  //generates a form like <label>Nombre</label><input >
+            "placeholder": true,   //generates a form like <input placeholder='Nombre'/>
+            "bootstrap":   "3.2.0",
+            "formHelper":  "default",  //[default, simple_form, formtastic]
+          },
+  "path": {
+            "index": "users_path",
+            "show": "user_path(user)",
+            "edit": "edit_user_path(user)",
+            "destroy": "user_path(user)",
+            "new": "new_user_path"
+          },
+  "test": "rspec"
+}
